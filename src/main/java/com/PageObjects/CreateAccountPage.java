@@ -7,19 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CreateAccountPage {
 	WebDriver driver;
-
-	@FindBy(id="firstName")
-	By fname;
-	@FindBy(id="lastName")
-	By lname;
-	@FindBy(id="username")
-	By uname;
-	@FindBy(id="Passwd")
-	By pwd;
-	@FindBy(id="ConfirmPasswd")
-	By cpwd;
-	@FindBy(xpath="//span[@class='RveJvd snByac']")
-	By next;
+	
+	By fname = By.id("firstName");
+	By lname = By.id("lastName");
+	By uname = By.id("username");
+	By pwd = By.name("Passwd");
+	By cpwd = By.xpath("//input[@name='ConfirmPasswd']");
+	By next = By.xpath("//span[@class='RveJvd snByac']");
 	
 	public CreateAccountPage(WebDriver driver) {
 		this.driver = driver;
@@ -39,7 +33,7 @@ public class CreateAccountPage {
 		driver.findElement(pwd).sendKeys(pass);
 	}
 	public void setCPwd(String cpass) {
-		driver.findElement(pwd).sendKeys(cpass);
+		driver.findElement(cpwd).sendKeys(cpass);
 	}	
 	public void clickNext1() {
 		driver.findElement(next).click();
